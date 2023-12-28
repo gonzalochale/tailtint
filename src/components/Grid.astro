@@ -1,36 +1,20 @@
 ---
 import Card from "./Card.astro";
-
+import Background1 from "./backgrounds/Background1.astro";
+import Background2 from "./backgrounds/Background2.astro";
+import Background3 from "./backgrounds/Background3.astro";
 const data = [
   {
-    title: "Hello World",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl",
+    id: 1,
+    snippet: Background1,
   },
   {
-    title: "Hello World",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl",
+    id: 2,
+    snippet: Background2,
   },
   {
-    title: "Hello World",
-    snippet:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl",
-  },
-  {
-    title: "Hello World",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl",
-  },
-  {
-    title: "Hello World",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl",
-  },
-  {
-    title: "Hello World",
-    snippet:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl",
+    id: 3,
+    snippet: Background3,
   },
 ];
 ---
@@ -41,7 +25,7 @@ const data = [
   {
     data.map((item) => (
       <Card
-        title={item.title}
+        id={item.id}
         snippet={item.snippet}
         copyButton="Copy"
         previewButon="Preview"

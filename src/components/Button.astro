@@ -3,11 +3,11 @@ let { variant = "primary" } = Astro.props;
 let buttonClasses = {
   primary: {
     button:
-      "h-10 px-4 py-2 border border-muted bg-foreground rounded-md flex items-center justify-center text-sm font-medium text-background hover:bg-muted",
+      "h-10 px-4 py-2 border border-muted bg-foreground rounded-md flex items-center justify-center text-sm font-medium text-background hover:bg-foreground/90",
   },
   secondary: {
     button:
-      "h-10 px-4 py-2 border border-primary bg-secondary rounded-md flex items-center justify-center text-sm font-medium text-foreground hover:bg-primary",
+      "h-10 px-4 py-2 border border-primary bg-secondary rounded-md flex items-center justify-center text-sm font-medium text-background hover:bg-primary",
   },
   outline: {
     button:

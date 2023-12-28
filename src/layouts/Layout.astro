@@ -19,26 +19,30 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <div id="snippetContainer"></div>
     <slot />
   </body>
 </html>
 <style is:global>
   :root {
-    color-scheme: dark;
+    color-scheme: light;
   }
   html {
     font-family: "Onest variable", system-ui, sans-serif;
   }
   body {
-    padding-right: 12px;
-    padding-left: 12px;
+    position: relative;
+    padding-right: 16px;
+    padding-left: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #151419;
-    min-height: 100dvh;
+    justify-content: center;
+    min-height: 100%;
+    width: 100%;
   }
   main {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;

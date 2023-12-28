@@ -2,20 +2,20 @@
 import Button from "./Button.astro";
 
 interface Props {
-  title: string;
-  snippet: string;
+  id: number;
+  snippet: any;
   copyButton: string;
   previewButon: string;
 }
 
-const { title, snippet, copyButton, previewButon } = Astro.props;
+const { snippet: Snippet, copyButton, previewButon, id } = Astro.props;
 ---
 
 <div
-  class="rounded-md border border-border p-4 flex flex-col justify-between items-center min-h-[300px] min-w-[300px] w-full"
+  class="relative rounded-md shadow-sm p-4 flex flex-col justify-between items-center min-h-[300px] min-w-[300px] w-full overflow-hidden backdrop-blur-3xl border border-border"
 >
-  <div class="flex gap-3 justify-end w-full">
-    <button>
+  <div class="flex gap-3 items-start justify-end w-full">
+    <button data-snippet-id=`snippet-${id}` class="handleBackground">
       <Button>
         {previewButon}
       </Button>
@@ -26,4 +26,21 @@ const { title, snippet, copyButton, previewButon } = Astro.props;
       </Button>
     </button>
   </div>
+  <Snippet id={`snippet-${id}`} />
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const buttons = document.querySelectorAll("button.handleBackground");
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const snippetId = (button as HTMLElement).dataset.snippetId;
+        const snippet = document.getElementById(snippetId);
+        const snippetContainer = document.getElementById("snippetContainer");
+        if (snippet && snippetContainer) {
+          snippetContainer.innerHTML = snippet.outerHTML;
+        }
+      });
+    });
+  });
+</script>

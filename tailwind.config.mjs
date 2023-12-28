@@ -5,14 +5,14 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				"background": "#151419",
+				"background": "#FBFBFB",
 				'primary': '#7341F2',
 				'secondary': '#855BFA',
 				"tertiary": "#AA85FE",
 				"card": "#1B1B1E",
 				"accent": "#262626",
-				"border": "#878787",
-				"foreground": "#FBFBFB",
+				"border": "#EAEAEA",
+				"foreground": "#151419",
 				"muted": "#B6B6B7",
 			},
 		},
