@@ -1,0 +1,29 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  title: string;
+  snippet: string;
+  copyButton: string;
+  previewButon: string;
+}
+
+const { title, snippet, copyButton, previewButon } = Astro.props;
+---
+
+<div
+  class="rounded-md border border-border p-4 flex flex-col justify-between items-center min-h-[300px] min-w-[300px] w-full"
+>
+  <div class="flex gap-3 justify-end w-full">
+    <button>
+      <Button>
+        {previewButon}
+      </Button>
+    </button>
+    <button>
+      <Button variant="outline">
+        {copyButton}
+      </Button>
+    </button>
+  </div>
+</div>

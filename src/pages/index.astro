@@ -1,4 +1,5 @@
 ---
+import Grid from "../components/Grid.astro";
 import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -6,6 +7,15 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="TailTint - Beautiful TailWindCSS BackGrounds.">
   <main>
     <Hero />
+    <Grid />
+    <footer class="py-5">
+      Made by <a
+        href="https://twitter.com/gonzalochale"
+        target="_blank"
+        class="text-secondary hover:underline hover:text-primary"
+        >Gonzalo Chalé</a
+      >
+    </footer>
   </main>
 </Layout>
 

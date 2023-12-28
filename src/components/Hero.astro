@@ -4,16 +4,19 @@ import Button from "./Button.astro";
 import Badge from "./Badge.astro";
 ---
 
-<section class="w-full flex flex-col gap-3 justify-center items-center py-24">
+<section
+  class="w-full max-w-3xl flex flex-col gap-3 justify-center items-center py-24"
+>
   <Badge>New backgrounds comming soon <Sparks /></Badge>
   <h1 class="text-7xl font-medium text-foreground text-center tracking-tighter">
     Welcome to TailTint
   </h1>
-  <h2 class="text-xl font-medium text-center text-foreground/80">
-    Beautiful backgrounds using TailWindCSS
+  <h2 class="text-xl font-medium text-center text-foreground/85">
+    Elevate your web design with TailTint – where TailWindCSS meets simplicity
+    for beautiful backgrounds
   </h2>
   <div class="flex gap-5">
     <a href="/"><Button variant="primary">Go to GitHub</Button></a>
-    <button><Button variant="secondary">Click me</Button></button>
+    <button><Button variant="secondary">Reset Background</Button></button>
   </div>
 </section>

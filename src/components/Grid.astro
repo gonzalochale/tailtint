@@ -1,0 +1,51 @@
+---
+import Card from "./Card.astro";
+
+const data = [
+  {
+    title: "Hello World",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl",
+  },
+  {
+    title: "Hello World",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl",
+  },
+  {
+    title: "Hello World",
+    snippet:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl",
+  },
+  {
+    title: "Hello World",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl",
+  },
+  {
+    title: "Hello World",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl",
+  },
+  {
+    title: "Hello World",
+    snippet:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl",
+  },
+];
+---
+
+<section
+  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center w-full max-w-5xl gap-10 pb-24"
+>
+  {
+    data.map((item) => (
+      <Card
+        title={item.title}
+        snippet={item.snippet}
+        copyButton="Copy"
+        previewButon="Preview"
+      />
+    ))
+  }
+</section>
