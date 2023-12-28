@@ -1,0 +1,19 @@
+---
+import Sparks from "../components/icons/Sparks.astro";
+import Button from "./Button.astro";
+import Badge from "./Badge.astro";
+---
+
+<section class="w-full flex flex-col gap-3 justify-center items-center py-24">
+  <Badge>New backgrounds comming soon <Sparks /></Badge>
+  <h1 class="text-7xl font-medium text-foreground text-center tracking-tighter">
+    Welcome to TailTint
+  </h1>
+  <h2 class="text-xl font-medium text-center text-foreground/80">
+    Beautiful backgrounds using TailWindCSS
+  </h2>
+  <div class="flex gap-5">
+    <a href="/"><Button variant="primary">Go to GitHub</Button></a>
+    <button><Button variant="secondary">Click me</Button></button>
+  </div>
+</section>

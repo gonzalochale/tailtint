@@ -1,0 +1,17 @@
+---
+let { variant = "primary" } = Astro.props;
+let buttonClasses = {
+  primary: {
+    button:
+      "h-10 px-4 py-2 border border-border bg-foreground rounded-md flex items-center justify-center text-sm font-medium text-background hover:bg-muted",
+  },
+  secondary: {
+    button:
+      "h-10 px-4 py-2 border border-primary bg-secondary rounded-md flex items-center justify-center text-sm font-medium text-foreground hover:bg-primary",
+  },
+};
+---
+
+<div class={buttonClasses[variant].button}>
+  <slot />
+</div>
