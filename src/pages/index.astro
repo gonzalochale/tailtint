@@ -4,6 +4,7 @@ import Hero from "../components/Hero.astro";
 import X from "../components/icons/X.astro";
 import GitHub from "../components/icons/GitHub.astro";
 import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout
@@ -11,25 +12,30 @@ import Layout from "../layouts/Layout.astro";
   description="Easy copy and paste backgrounds using TailwindCSS."
 >
   <main>
-    <header class="w-full flex gap-3 justify-end items-center pt-10">
-      <a
-        href="https://github.com/gonzalochale/tailtint"
-        target="_blank"
-        class="border border-border bg-background p-2 rounded-md hover:bg-border"
-        aria-label="GitHub Repository"
-      >
-        <GitHub />
-        <span class="sr-only">GitHub Repository</span>
-      </a>
-      <a
-        href="https://twitter.com/gonzalochale"
-        target="_blank"
-        class="border border-border bg-background p-2 rounded-md hover:bg-border"
-        aria-label="Twitter"
-      >
-        <X />
-        <span class="sr-only">GitHub Repository</span>
-      </a>
+    <header class="w-full flex gap-3 justify-end items-center py-5">
+      <div class="flex gap-3">
+        <button class="reset"
+          ><Button variant="outline">Clean Background</Button></button
+        >
+        <a
+          href="https://github.com/gonzalochale/tailtint"
+          target="_blank"
+          class="border text-background bg-foreground p-2 rounded-md hover:bg-foreground/80"
+          aria-label="GitHub Repository"
+        >
+          <GitHub />
+          <span class="sr-only">GitHub Repository</span>
+        </a>
+        <a
+          href="https://twitter.com/gonzalochale"
+          target="_blank"
+          class="border text-background bg-foreground p-2 rounded-md hover:bg-foreground/80"
+          aria-label="Twitter"
+        >
+          <X />
+          <span class="sr-only">GitHub Repository</span>
+        </a>
+      </div>
     </header>
     <Hero />
     <Grid />
