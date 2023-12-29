@@ -1,11 +1,33 @@
 ---
 import Grid from "../components/Grid.astro";
 import Hero from "../components/Hero.astro";
+import X from "../components/icons/X.astro";
+import GitHub from "../components/icons/GitHub.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="TailTint - Beautiful TailWindCSS BackGrounds.">
   <main>
+    <header class="w-full flex gap-3 justify-end items-center pt-10">
+      <a
+        href="https://github.com/gonzalochale/tailtint"
+        target="_blank"
+        class="border border-border bg-background p-2 rounded-md hover:bg-border"
+        aria-label="GitHub Repository"
+      >
+        <GitHub />
+        <span class="sr-only">GitHub Repository</span>
+      </a>
+      <a
+        href="https://twitter.com/gonzalochale"
+        target="_blank"
+        class="border border-border bg-background p-2 rounded-md hover:bg-border"
+        aria-label="Twitter"
+      >
+        <X />
+        <span class="sr-only">GitHub Repository</span>
+      </a>
+    </header>
     <Hero />
     <Grid />
     <footer class="py-5">

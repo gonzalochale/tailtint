@@ -5,7 +5,7 @@ import Badge from "./Badge.astro";
 ---
 
 <section
-  class="w-full max-w-3xl flex flex-col gap-3 justify-center items-center py-24"
+  class="w-full max-w-3xl flex flex-col gap-3 justify-center items-center pt-10 pb-24"
 >
   <Badge>New backgrounds comming soon <Sparks /></Badge>
   <h1 class="text-7xl font-medium text-center">Welcome to TailTint</h1>
@@ -14,7 +14,25 @@ import Badge from "./Badge.astro";
     for beautiful backgrounds
   </h2>
   <div class="flex gap-5">
-    <a href="/"><Button variant="primary">Go to GitHub</Button></a>
-    <button><Button variant="secondary">Reset Background</Button></button>
+    <a href="https://github.com/gonzalochale/tailtint" target="_blank"
+      ><Button variant="primary">Go to GitHub</Button></a
+    >
+    <button class="reset"
+      ><Button variant="secondary">Reset Background</Button></button
+    >
   </div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const buttons = document.querySelectorAll("button.reset");
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const snippetContainer = document.getElementById("snippetContainer");
+        if (snippetContainer) {
+          snippetContainer.innerHTML = null;
+        }
+      });
+    });
+  });
+</script>

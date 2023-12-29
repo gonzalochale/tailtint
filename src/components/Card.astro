@@ -20,7 +20,7 @@ const { snippet: Snippet, copyButton, previewButon, id } = Astro.props;
         {previewButon}
       </Button>
     </button>
-    <button>
+    <button data-snippet-id=`snippet-${id}` class="handleCopy">
       <Button variant="outline">
         {copyButton}
       </Button>
@@ -39,6 +39,28 @@ const { snippet: Snippet, copyButton, previewButon, id } = Astro.props;
         const snippetContainer = document.getElementById("snippetContainer");
         if (snippet && snippetContainer) {
           snippetContainer.innerHTML = snippet.outerHTML;
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const buttons = document.querySelectorAll("button.handleCopy");
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const snippetId = (button as HTMLElement).dataset.snippetId;
+        const snippet = document.getElementById(snippetId);
+        if (snippet) {
+          navigator.clipboard
+            .writeText(snippet.outerHTML)
+            .then(() => {
+              console.log("Copiado al portapapeles");
+            })
+            .catch((err) => {
+              console.log("Error al copiar al portapapeles: ", err);
+            });
         }
       });
     });
