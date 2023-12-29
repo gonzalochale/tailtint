@@ -23,14 +23,5 @@ const data = [
 <section
   class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 place-items-center w-full max-w-5xl gap-10 pb-24"
 >
-  {
-    data.map((item) => (
-      <Card
-        id={item.id}
-        snippet={item.snippet}
-        copyButton="Copy"
-        previewButon="Preview"
-      />
-    ))
-  }
+  {data.map((item) => <Card id={item.id} snippet={item.snippet} />)}
 </section>

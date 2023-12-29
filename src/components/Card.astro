@@ -1,68 +1,69 @@
 ---
-import Button from "./Button.astro";
+import Preview from "./icons/Preview.astro";
+import Copy from "./icons/Copy.astro";
 
 interface Props {
   id: number;
   snippet: any;
-  copyButton: string;
-  previewButon: string;
 }
 
-const { snippet: Snippet, copyButton, previewButon, id } = Astro.props;
+const { snippet: Snippet, id } = Astro.props;
 ---
 
 <div
-  class="relative rounded-md shadow-sm p-4 flex flex-col justify-between items-center min-h-[300px] min-w-[300px] w-full overflow-hidden backdrop-blur-3xl border border-border bg-white"
+  class="relative rounded-md shadow-md p-4 flex flex-col justify-between items-center min-h-[300px] min-w-[300px] w-full overflow-hidden backdrop-blur-3xl border border-border bg-white"
 >
   <div class="flex gap-3 items-start justify-end w-full">
-    <button data-snippet-id=`snippet-${id}` class="handleBackground">
-      <Button>
-        {previewButon}
-      </Button>
+    <button
+      data-snippet-id=`snippet-${id}`
+      class="handleBackground border border-border bg-white p-2 sm:p-1 rounded-md"
+    >
+      <Preview />
     </button>
-    <button data-snippet-id=`snippet-${id}` class="handleCopy">
-      <Button variant="outline">
-        {copyButton}
-      </Button>
+    <button
+      data-snippet-id=`snippet-${id}`
+      class="handleCopy border border-border bg-white p-2 sm:p-1 rounded-md"
+    >
+      <Copy />
     </button>
+    <Snippet id={`snippet-${id}`} />
   </div>
-  <Snippet id={`snippet-${id}`} />
+
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const buttons = document.querySelectorAll("button.handleBackground");
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const snippetId = (button as HTMLElement).dataset.snippetId;
+          const snippet = document.getElementById(snippetId);
+          const snippetContainer = document.getElementById("snippetContainer");
+          if (snippet && snippetContainer) {
+            snippetContainer.innerHTML = snippet.outerHTML;
+          }
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const buttons = document.querySelectorAll("button.handleCopy");
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const snippetId = (button as HTMLElement).dataset.snippetId;
+          const snippet = document.getElementById(snippetId);
+          if (snippet) {
+            navigator.clipboard
+              .writeText(snippet.outerHTML)
+              .then(() => {
+                console.log("Copiado al portapapeles");
+              })
+              .catch((err) => {
+                console.log("Error al copiar al portapapeles: ", err);
+              });
+          }
+        });
+      });
+    });
+  </script>
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", (event) => {
-    const buttons = document.querySelectorAll("button.handleBackground");
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const snippetId = (button as HTMLElement).dataset.snippetId;
-        const snippet = document.getElementById(snippetId);
-        const snippetContainer = document.getElementById("snippetContainer");
-        if (snippet && snippetContainer) {
-          snippetContainer.innerHTML = snippet.outerHTML;
-        }
-      });
-    });
-  });
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", (event) => {
-    const buttons = document.querySelectorAll("button.handleCopy");
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const snippetId = (button as HTMLElement).dataset.snippetId;
-        const snippet = document.getElementById(snippetId);
-        if (snippet) {
-          navigator.clipboard
-            .writeText(snippet.outerHTML)
-            .then(() => {
-              console.log("Copiado al portapapeles");
-            })
-            .catch((err) => {
-              console.log("Error al copiar al portapapeles: ", err);
-            });
-        }
-      });
-    });
-  });
-</script>
