@@ -1,6 +1,5 @@
 # TailTint
-![screencapture-tailtint-vercel-app-2023-12-28-19_19_31](https://github.com/gonzalochale/tailtint/assets/80075049/84a9dee6-36c8-4699-8781-f6c356604ba9)
-
+![screencapture-tailtint-vercel-app-2023-12-29-20_24_57](https://github.com/gonzalochale/tailtint/assets/80075049/1db7ed3f-8a72-4dbe-bf0a-198e8a69dd35)
 
 ## Introduction
 This is a small project strongly inspired by GitHub user @Ibelick, which I used to reinforce my knowledge in Astro.
