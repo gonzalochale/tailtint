@@ -11,9 +11,9 @@ const { snippet: Snippet, id } = Astro.props;
 ---
 
 <div
-  class="relative rounded-md shadow-md p-4 flex flex-col justify-between items-center min-h-[300px] min-w-[300px] w-full overflow-hidden backdrop-blur-3xl border border-border bg-white"
+  class="relative rounded-md shadow-md flex flex-col justify-start items-center min-h-[300px] min-w-[300px] w-full overflow-hidden backdrop-blur-3xl border border-border bg-white"
 >
-  <div class="flex gap-3 items-start justify-end w-full">
+  <div class="flex gap-3 items-start justify-end w-full h-full p-5">
     <button
       data-snippet-id=`snippet-${id}`
       class="handleBackground border border-border bg-white p-2 sm:p-1 rounded-md"
@@ -26,8 +26,8 @@ const { snippet: Snippet, id } = Astro.props;
     >
       <Copy />
     </button>
-    <Snippet id={`snippet-${id}`} />
   </div>
+  <Snippet id={`snippet-${id}`} />
 
   <script>
     document.addEventListener("DOMContentLoaded", (event) => {
