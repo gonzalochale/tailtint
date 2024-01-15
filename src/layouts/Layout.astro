@@ -1,5 +1,6 @@
 ---
 import "@fontsource-variable/onest";
+import { Analytics } from "@vercel/analytics/react";
 
 interface Props {
   title: string;
@@ -23,6 +24,7 @@ const { title, description } = Astro.props;
   <body>
     <div id="snippetContainer"></div>
     <slot />
+    <Analytics />
   </body>
 </html>
 <style is:global>
